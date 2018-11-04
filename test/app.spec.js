@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('app', function() {
-    it('test', function() {
-        expect(true).equal(true);
+    it('is okay', function() {
+        expect(true).to.eq(true);
     });
 });

@@ -1,1 +1,1 @@
-console.log('Welcome to ES6');
+console.log('Welcome to YDKJS');
