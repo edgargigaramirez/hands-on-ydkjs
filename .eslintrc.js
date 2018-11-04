@@ -13,6 +13,7 @@ module.exports = {
     "rules": {
         "no-console": "off",
         "quotes": ["error", "single"],
-        "indent": ["error",4]
+        "indent": ["error", 4, { "ObjectExpression": "off" }],
+        "semi": ["error", "always"]
     }
 };

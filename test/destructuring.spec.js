@@ -30,7 +30,7 @@ describe('ES6&B', function() {
                     x:4,
                     y:5,
                     z:6
-                }
+                };
             }
 
             var {x,y,z} = bar();
@@ -54,6 +54,18 @@ describe('ES6&B', function() {
             expect(x).to.equal(4);
             expect(y).to.equal(5);
             expect(z).to.equal(6);
+        });
+
+        it('flatten out objet namespaces', function() {
+            var App = {
+                    model: {
+                        User: console.log
+                    }
+            };
+
+            var {model: { User }} = App;
+
+            expect(User).to.eqls(App.model.User);
         });
     });
 });
