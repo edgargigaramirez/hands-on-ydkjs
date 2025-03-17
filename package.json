@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run test && node index.js",
+    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
     "eslint": "eslint index.js --fix src/** test/**",
-    "test": "npm run eslint && mocha --reporter spec ./test/**/*.spec.js"
+    "test": "npm run format && mocha --reporter spec ./test/**/*.spec.js"
   },
   "author": "Edgar",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.7.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "prettier": "^3.5.3"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
