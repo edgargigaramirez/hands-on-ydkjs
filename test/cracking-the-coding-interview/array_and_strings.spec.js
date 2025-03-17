@@ -1,5 +1,4 @@
 const { expect } = require('chai')
-const { describe } = require('mocha')
 
 describe('array_and_strings', function () {
   it('is_unique', function () {
@@ -10,12 +9,13 @@ describe('array_and_strings', function () {
       var chars_ascii = new Array(128).fill(false)
       for (let i = 0; i < str.length; i++) {
         let charCodeAt = str[i].charCodeAt(0)
-        if (charCodeAt < 'a' || charCodeAt > 'z') {
+        if (charCodeAt < 0 || charCodeAt > 128) {
+          console.log(`${str[i]} is not ASCII char in ${str}`)
           return false
         }
         let chars_ascii_index = charCodeAt - 'a'.charCodeAt(0)
         if (chars_ascii[chars_ascii_index]) {
-          console.log(`${str} is not unique becuase of ${str[i]} at ${i}`)
+          console.log(`${str} is not unique because of ${str[i]} at ${i}`)
           return false
         }
         chars_ascii[chars_ascii_index] = true
@@ -34,7 +34,10 @@ describe('array_and_strings', function () {
     for (let i = 0; i < 128; i++) {
       asciiString += String.fromCharCode(i)
     }
+    // Test the function with the ASCII string
     expect(is_unique(asciiString)).to.equal(true)
     expect(is_unique(asciiString + 'a')).to.equal(false)
+    // non-ASCII characters
+    expect(is_unique('abcdéf')).to.equal(false)
   })
 })
